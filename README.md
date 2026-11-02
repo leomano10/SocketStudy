@@ -2,7 +2,6 @@
 
 **Name:** MANORAJAPRIYAN.L.E  
 **Reg. No:** 212225040227  
-**Date:** 17/10/2026
 
 ## AIM
 
