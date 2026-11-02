@@ -98,38 +98,59 @@ It is the foundation for protocols such as HTTP, FTP, and SMTP, which facilitate
 ```python
 import socket
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("127.0.0.1", 12345))
-server.listen(1)
+# Create socket
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-print("Server is waiting for a connection...")
+# Bind socket to IP and port
+host = '127.0.0.1'
+port = 12345
+server_socket.bind((host, port))
 
-conn, addr = server.accept()
+# Listen for connections
+server_socket.listen(1)
+print("Server is waiting for connection...")
+
+# Accept client connection
+conn, addr = server_socket.accept()
 print("Connected to:", addr)
 
-message = conn.recv(1024).decode()
-print("Client says:", message)
+# Receive data from client
+data = conn.recv(1024).decode()
+print("Client says:", data)
 
-conn.send("Hello from Server!".encode())
+# Send response to client
+message = "Hello Client, message received!"
+conn.send(message.encode())
 
+# Close connection
 conn.close()
-server.close()
+server_socket.close()
 ```
 
 ## CLIENT PROGRAM
 
 ```python
+# Client Program (client.py)
 import socket
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(("127.0.0.1", 12345))
+# Create socket
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-client.send("Hello from Client!".encode())
+# Connect to server
+host = '127.0.0.1'
+port = 12345
+client_socket.connect((host, port))
 
-message = client.recv(1024).decode()
-print("Server says:", message)
+# Send message to server
+message = "Hello Server!"
+client_socket.send(message.encode())
 
-client.close()
+# Receive response from server
+data = client_socket.recv(1024).decode()
+print("Server says:", data)
+
+# Close socket
+client_socket.close()
 ```
 
 ## OUTPUT
