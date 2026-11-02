@@ -134,13 +134,8 @@ client.close()
 
 ## OUTPUT
 
-### Server Output
+<img width="1920" height="1080" alt="Screenshot (72)" src="https://github.com/user-attachments/assets/ff55df9d-22fc-4a37-b874-c33ef8163706" />
 
-![Server Output](https://github.com/user-attachments/assets/086c1672-c66c-43af-a514-3a9d7b357214)
-
-### Client Output
-
-![Client Output](https://github.com/user-attachments/assets/c6c47d22-54c9-4b9f-b6d4-efaed2e38457)
 
 ## RESULT
 
